@@ -84,11 +84,11 @@ Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most ou
 
 <script src="https://unpkg.com/mermaid@latest/dist/mermaid.min.js"></script>
 <script>
-  $(document).ready(function () {
-    mermaid.initialize({
+  document.addEventListener( "DOMContentLoaded", function(){
+      mermaid.initialize({
       startOnLoad:true,
       theme: "default",
     });
     window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
-  });
+  }, false );
 </script>
