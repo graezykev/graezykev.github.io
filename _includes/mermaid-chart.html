@@ -1,10 +1,23 @@
-<script src="https://unpkg.com/mermaid@latest/dist/mermaid.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: "default",
-    });
-    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+    const chartCodeBlocks = document.querySelectorAll('.language-mermaid');
+
+    if (!chartCodeBlocks || chartCodeBlocks.length <= 0) {
+      return
+    }
+
+    var s = document.createElement('script')
+
+    s.onload = function () {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+      });
+      window.mermaid.init(undefined, chartCodeBlocks);
+    }
+
+    s.src = 'https://unpkg.com/mermaid@latest/dist/mermaid.min.js'
+
+    document.body.appendChild(s)
   }, false);
 </script>
